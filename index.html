@@ -674,9 +674,9 @@
             }
 
             .button-modal-secondary {
-                background: transparent;
+                background: var(--bg-elevated);
                 color: var(--primary);
-                border: none;
+                border: 1px solid var(--primary);
             }
 
             .button-modal-secondary:hover {
@@ -689,13 +689,15 @@
             }
 
             .button-modal-close {
-                background: var(--gray-600);
-                color: var(--text);
-                border: 1px solid var(--border-control);
+                background: transparent;
+                color: var(--primary);
+                border: none;
+                text-decoration: underline;
             }
 
             .button-modal-close:hover {
-                background: var(--gray-550);
+                background: var(--primary-750);
+                color: var(--primary-hover);
             }
 
             .button-modal-close:focus-visible {
@@ -722,7 +724,7 @@
 <body ng-controller="ServiceCodeCtrl as vm">
     <!-- Main Service Window -->
     <div class="service-window">
-        <header>Service Codes</header>
+        <header>Service Code</header>
 
         <main style="padding: 1.5rem;">
             <table>
@@ -870,7 +872,7 @@
             <div style="display: flex; justify-content: end; align-items: center; margin-block-start: 1.5rem;">
                 <div class="split-button-group">
                     <button class="button-primary" ng-click="vm.generateBoth()">
-                        Generate Invoice + Superbill
+                        Generate Invoice & Superbill
                     </button>
                     <button class="dropdown-toggle" ng-click="vm.toggleDropdown(); $event.stopPropagation()" aria-expanded="{{vm.dropdownOpen}}" aria-controls="dropdownMenu" aria-label="More generation options">
                         <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
@@ -905,7 +907,7 @@
                     <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
             </div>
-            <h2 id="modalBothTitle">Invoice + Superbill Generated</h2>
+            <h2 id="modalBothTitle">Invoice & Superbill Generated</h2>
             <p>Both documents have been created and are available to view.</p>
             <div class="modal-actions">
                 <button class="button-modal-primary" ng-click="vm.viewInvoice()">View Invoice</button>
