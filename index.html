@@ -145,6 +145,7 @@
                 transform: translate(-50%, -50%);
                 margin: 0;
                 opacity: 0;
+                background: var(--bg-elevated);
                 transition:
                     opacity var(--duration) var(--ease-out-quadratic),
                     transform var(--duration) var(--ease-out-quadratic);
@@ -169,7 +170,6 @@
             }
 
             @starting-style {
-
                 dialog[open],
                 dialog[open]::backdrop {
                     opacity: 0;
@@ -1003,12 +1003,12 @@
                     if (modal) {
                         modal.classList.add('closing');
 
-                        modal.addEventListener('animationend', function () {
+                        modal.addEventListener('animationend', function() {
                             modal.classList.remove('closing');
                             modal.close();
                         }, { once: true });
 
-                        setTimeout(function () {
+                        setTimeout(function() {
                             if (modal.classList.contains('closing')) {
                                 modal.classList.remove('closing');
                                 modal.close();
@@ -1085,13 +1085,13 @@
                 }, 0);
 
                 // Close modal when clicking backdrop
-                $timeout(function () {
+                $timeout(function() {
                     var modals = document.querySelectorAll('dialog');
-                    modals.forEach(function (modal) {
-                        modal.addEventListener('click', function (e) {
+                    modals.forEach(function(modal) {
+                        modal.addEventListener('click', function(e) {
                             if (e.target === modal) {
                                 var modalId = modal.id;
-                                $scope.$apply(function () {
+                                $scope.$apply(function() {
                                     vm.closeModal(modalId);
                                 });
                             }
